@@ -1,0 +1,102 @@
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none; /* No background color needed since video is the background */
+  overflow: hidden; /* To hide scrollbars caused by the video */
+}
+
+/* Background Video */
+#background-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+  z-index: -1; /* Send video to the back */
+  object-fit: contain; /* Ensures the entire video is visible without cropping */
+  background-color: black; /* Fills the empty space with black if video doesn't fully cover the screen */
+}
+
+/* Bio Container */
+.bio-container {
+  background-color: rgba(0, 0, 0, 0.7); /* Darker background with some transparency */
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.7), /* White glow effect */
+              0 0 30px rgba(255, 255, 255, 0.5); /* Additional glow for emphasis */
+  overflow: hidden;
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  z-index: 1; /* Ensures the content is above the video */
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Profile Picture */
+.profile-pic img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  transition: transform 0.5s ease;
+}
+
+/* Hover effect on profile picture */
+.profile-pic img:hover {
+  transform: scale(1.1);
+}
+
+.bio-content {
+  padding: 20px;
+  color: white; /* White text color for contrast */
+}
+
+.bio-name {
+  font-size: 2rem;
+  margin: 0;
+  opacity: 0;
+  animation: slideIn 1s forwards 1s;
+}
+
+.bio-description {
+  margin: 10px 0;
+  opacity: 0;
+  animation: slideIn 1s forwards 1.5s;
+}
+
+/* Social Links */
+.social-links {
+  margin-top: 20px; /* Spacing above social links */
+  font-size: 1.2rem; /* Slightly larger font for social links */
+}
+
+.social-links p {
+  margin: 5px 0; /* Spacing between each link */
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
